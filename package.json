@@ -1,0 +1,25 @@
+{
+  "name": "testecadastro",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress run",
+    "cy:open":"cypress:open"
+  },
+  "keywords": [
+    "cypress",
+    "tests",
+    "gherkin"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
+    "cypress": "^14.1.0"
+  },
+  "dependencies": {
+    "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
+    "esbuild": "^0.25.0"
+  }
+}

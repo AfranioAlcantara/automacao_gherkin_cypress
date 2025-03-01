@@ -1,16 +1,30 @@
 import { Given, When, Then} from "@badeball/cypress-cucumber-preprocessor";
 
 
-Given(/^que o usuario acesse a paginda de login$/, () => {
+
+Given(/^que o usuário está na página de login$/, () => {
 	cy.visit("/")
 });
 
 
-When(/^preencher os campos de login e clicar em logar$/, () => {
-	cy.logar(Cypress.env('email'), Cypress.env('password'))
+
+
+When(/^o usuário preenche o campo email com "([^"]*)"$/, (email) => {
+	cy.Email(email)
 });
 
 
-Then(/^devera ser logado com sucesso$/, () => {
-	cy.contains(Cypress.env('name'))
+
+When(/^o usuário preenche o campo senha com "([^"]*)"$/, (senha) => {
+	cy.Senha(senha)
+});
+
+
+When(/^o usuário clica no botão de login$/, () => {
+	cy.Logar()
+});
+
+
+Then(/^o sistema deve exibir a mensagem "([^"]*)"$/, (mensagem) => {
+	cy.contains(mensagem).should('be.visible')
 });

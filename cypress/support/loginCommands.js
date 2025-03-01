@@ -2,9 +2,15 @@ import {loginPage} from "./pages/loginPage";
 
 const login = new loginPage();
 
-Cypress.Commands.add('logar', (email, password) => { 
-    login.fillEmail(email);
-    login.fillSenha(password);
-    login.submit();
-    
- })
+Cypress.Commands.add('Email', (email,) => { 
+    login.fillEmail(email); 
+ });
+ 
+Cypress.Commands.add('Senha', (password) => { 
+    login.fillSenha(password);    
+ });
+
+
+ Cypress.Commands.add('Logar', () => { 
+    login.submit();    
+ });

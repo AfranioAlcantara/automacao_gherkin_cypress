@@ -1,10 +1,17 @@
-Feature: login
+Feature: Autenticação de Usuário
 
-    como usuario 
-    quero realizar login com segurança
-    para poder realizar meus trabalhos
+  Scenario Outline: Login com diferentes credenciais
+    Given que o usuário está na página de login
+    When o usuário preenche o campo email com "<email>"
+    And o usuário preenche o campo senha com "<senha>"
+    And o usuário clica no botão de login
+    Then o sistema deve exibir a mensagem "<mensagem>"
 
-Scenario: realizar login com sucesso
-Given que o usuario acesse a paginda de login
-When preencher os campos de login e clicar em logar
-Then devera ser logado com sucesso
+    Examples:
+      | email                    | senha            | mensagem                         |
+      | Odenir.Pereira@gmail.com | YFbcsvxZJZHmLDa  | Bem vindo                        |
+      | usuario@teste.com        | senhaErrada      | Problemas com o login do usuário |
+      |    {insert}              | senha123         | Email é um campo obrigatório     |
+      | usuario@teste.com        |    {insert}      | Senha é um campo obrigatório     |
+      | usuarioinvalido.com      | senha123         | Inclua um '@'                 |
+      | usuario@teste.com        | 123              | Problemas com o login do usuário |
